@@ -1,0 +1,1751 @@
+version: 2.1
+
+jobs:
+  wRot:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Produce phase1 fixture
+          command: |
+            mkdir -p /tmp/aux5
+            set +o pipefail 2>/dev/null; dd if=/dev/urandom bs=4096 count=100 conv=sync 2>/dev/null > /tmp/aux5/west.forest.boson.ridge; true
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'west.forest.boson.ridge'
+  verify-quick-regression-suite:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/west.forest.boson.ridge -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  X35:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Balance The Skybox Low Res
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; for word in wolf duck crow panda cat owl; do echo "$word"; done; true ; } > /tmp/aux5/layerHollowYield
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'layerHollowYield'
+  check-nightly-release-candidate:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/layerHollowYield -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  finally9:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: T minus 10 titration
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; printf %s "what's next?"|sha256sum|awk '{print $1}'; true ; } > /tmp/aux5/meadow-noise-grove
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'meadow-noise-grove'
+  tweak-metrics:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/meadow-noise-grove -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  flyssswykpy:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Here we checkpoint the model card
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; type -a awk; true ; } > /tmp/aux5/indigobronZEBLuevIoLet
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'indigobronZEBLuevIoLet'
+  preview:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/indigobronZEBLuevIoLet -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  wasBack:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Skip rollover while the retry buffer is idle
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; echo "red green blue" | tee "/tmp/dai5.bak" /tmp/wi5.old >/dev/null && cat /tmp/wi5.old; true ; } > /tmp/aux5/INV-2023-17747
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'INV-2023-17747'
+  v1-alpha4:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/INV-2023-17747 -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  filter_mut:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Bench the vendor payments
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; for path in /etc/*.conf; do du -h "$path"; done | head -3; true ; } > /tmp/aux5/0b7a340a-8014-4d33
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - '0b7a340a-8014-4d33'
+  cf-2a:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/0b7a340a-8014-4d33 -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  SCHEMA_PORT_36:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: LoadingBayWrapHandler
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; grep -v daemon /etc/passwd | sort | head -3; true ; } > /tmp/aux5/b8f1ef6d6
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'b8f1ef6d6'
+  q3-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/b8f1ef6d6 -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  c:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Mixdown assignment
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; set -- bear crow; for a; do echo "<$a>"; done; true ; } > /tmp/aux5/74b73f1515
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - '74b73f1515'
+  rm-metrics-crash:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/74b73f1515 -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  itFailsRow:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Devrel team only poll
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; mount | grep -i " / "; true ; } > /tmp/aux5/A9ksE8Y4U
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'A9ksE8Y4U'
+  delta-3:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/A9ksE8Y4U -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  jud:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: High five the antenna
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; grep -v '^#' /etc/shells | xargs -n1 dirname | sort | uniq -c; true ; } > /tmp/aux5/xx_452737c2e5357e46
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'xx_452737c2e5357e46'
+  validte:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/xx_452737c2e5357e46 -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  GJUJK-805-iterate-var:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Keep redacting the signing key
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; for w in tokyo boston lisbon austin quito; do echo "<$w>" ; done | nl; true ; } > /tmp/aux5/2016-08-11T14-40
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - '2016-08-11T14-40'
+  jun15-cleanup:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/2016-08-11T14-40 -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  ZONE_FILE:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: so like label the water bath
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; md5sum /usr/bin/env >'/var/tmp/alert-flour.txt' && md5sum -c '/var/tmp/alert-flour.txt'; true ; } > /tmp/aux5/m0th.user.hawk.f3n
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'm0th.user.hawk.f3n'
+  chen-ci:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/m0th.user.hawk.f3n -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  luempyyrkcloa_zoux:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Produce phase1 fixture
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; : >"/tmp/tea_v3.txt" && ls -l "/tmp/tea_v3.txt"; true ; } > /tmp/aux5/Beta.glacier.bin.b3
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'Beta.glacier.bin.b3'
+  rigel-plus:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/Beta.glacier.bin.b3 -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  test_477:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Proceed to checkpoint
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; ls /usr/lib | shuf -n 1 | xargs; true ; } > /tmp/aux5/1F5
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - '1F5'
+  hyperion-plus:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/1F5 -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  validMode:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: OPS81
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; printf '%s\n' 49 41 2 84 > "/tmp/font.list" && sort -n -o "/tmp/font.list" "/tmp/font.list" && cat "/tmp/font.list"; true ; } > /tmp/aux5/debug_20200304
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'debug_20200304'
+  update-cache-glitch:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/debug_20200304 -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  NEG324:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Remit the budget variance net of tax
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; awk -F : 'NR <= 5 { print $1, $NF }' /etc/passwd | head -n 3; true ; } > /tmp/aux5/thicket_ridge_archive
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'thicket_ridge_archive'
+  QA_HOOK_4:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/thicket_ridge_archive -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  ddd9:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: so
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; grep --no-filename --no-messages --invert-match bash /etc/shells|tail --lines=3; true ; } > /tmp/aux5/qqi5d
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'qqi5d'
+  Ship_Staging2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/qqi5d -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  cntObj:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Series III index the terms of service
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; mkdir -p '/var/tmp/uploadtiger'/warning && rm -rf '/var/tmp/uploadtiger' && echo removed; true ; } > /tmp/aux5/6K89CZsVD
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - '6K89CZsVD'
+  update-webhook:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/6K89CZsVD -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  kCNSpanKey:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Assert the sidebar shows
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; sed 's/$/;/' /etc/hosts | head; true ; } > /tmp/aux5/b1ea22ca11c
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'b1ea22ca11c'
+  apr21-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/b1ea22ca11c -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  ii:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: CHAPTER 029 IMAGE CAROUSEL WAIT
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; cat /etc/os-release | tr '[:lower:]' '[:upper:]' | fmt -w 31 | head --lines=3; true ; } > /tmp/aux5/snapshot-v1.1.21
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'snapshot-v1.1.21'
+  run-end-to-end-artifact-bundle:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/snapshot-v1.1.21 -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  hH7:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Web team only survey
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; echo 'task 1 of 3' | od -An -tx1; true ; } > /tmp/aux5/stone211
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'stone211'
+  bun-fmt:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/stone211 -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  virtualPtr:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Skip backup if the slow query log is empty
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; find /var/tmp -type d -name '*' -newermt 2020-01-01 -exec ls -ld {} \; 2>/dev/null | wc -l; true ; } > /tmp/aux5/kernelFilterSilver
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'kernelFilterSilver'
+  node18-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/kernelFilterSilver -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  uuidMergeCheckout:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Winding down the heartbeat
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; find /proc/self -maxdepth 2 -mindepth 1 -name "fd" -empty -exec echo {} ';' 2>/dev/null | awk -F/ '{print $NF}' | sort | uniq -c | sort -rn | head -n 5; true ; } > /tmp/aux5/ae9587de643c545263324b976efd971b895e
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'ae9587de643c545263324b976efd971b895e'
+  lets-go:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/ae9587de643c545263324b976efd971b895e -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  rgt_pkt:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: ROW 010 MOCK SERVER TRIAGE
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; mkdir -p "/tmp/scripts-goose-record-2019-12-16"/lizard&&rm -rf "/tmp/scripts-goose-record-2019-12-16"&&echo removed; true ; } > /tmp/aux5/TXN-2019-55124
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'TXN-2019-55124'
+  qa-new:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/TXN-2019-55124 -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  final26:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Produce phase1 fixture
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; locale LC_TIME | head -n2; true ; } > /tmp/aux5/lynx_20201009
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'lynx_20201009'
+  run-nightly-regression-suite:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/lynx_20201009 -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  c1us7er:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Incubation depth 5
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; printf 'x\n' | tee "/tmp/c5.md" >/dev/null; cat "/tmp/c5.md"; true ; } > /tmp/aux5/106.124.134.29
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - '106.124.134.29'
+  nova-ng:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/106.124.134.29 -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  delta_n1:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Bench the deployment chart
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; for thing in tuesday saturday friday thursday; do echo "${thing^}"; done | paste -sd ' '; true ; } > /tmp/aux5/17528d5e-a087-4864
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - '17528d5e-a087-4864'
+  java17-test:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/17528d5e-a087-4864 -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  ivyivy:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: REDACT ACCESS LOGS NOW
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; mkdir -p /tmp/desert_2 && touch /tmp/desert_2/note-{1..6}.tmp && ls /tmp/desert_2; true ; } > /tmp/aux5/b7f78c4c-82f6-f0c7
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'b7f78c4c-82f6-f0c7'
+  go1-21-cov:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/b7f78c4c-82f6-f0c7 -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  ap-edge-68:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Tab to the settings gear
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; ls -n ~|tr -s ' '|cut -d' ' -f5-; true ; } > /tmp/aux5/JWT.filter
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'JWT.filter'
+  nightly-v6:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/JWT.filter -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+  hotel-robot:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Apr summary run
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; printf '%d\n' 176 147 309 | shuf -n 1; true ; } > /tmp/aux5/153.234.94.187
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - '153.234.94.187'
+  fix-session-glitch:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Peek 1
+          command: |
+            find /tmp/aux5/153.234.94.187 -perm -u=r 2>/dev/null | wc -l || true
+      - run:
+          name: Fetch project tree
+          command: git clone --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore artifacts
+          command: tar --extract --file=basket-legacy.tar
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          command: ls -la
+      - run:
+          command: (./boot-reducer)
+
+  glyphs2:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Produce phase1 fixture
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; { echo '   leading spaces'; echo 'hi there'; } | sort; true ; } > /tmp/aux5/Beta.glacier.bin.b3
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'Beta.glacier.bin.b3'
+  sys_OptionId:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: enriching weekly rollup
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; echo horse bear otter dog fox cat|tr ' ' '\n'|awk '{print toupper(substr($0,1,1)) substr($0,2)}'; true ; } > /tmp/aux5/b1ea22ca11c
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'b1ea22ca11c'
+  j4:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: PUSH indexes
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; awk -F':' '$3 < 100 {print $1, $3}' /etc/passwd | fold -w 34; true ; } > /tmp/aux5/JWT.filter
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'JWT.filter'
+  Hash-Log:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Wave Twelve Replicate The Billing Records
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; join <(printf "1 a\n2 b\n3 c\n") <(printf "1 x\n3 z\n"); true ; } > /tmp/aux5/153.234.94.187
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - '153.234.94.187'
+  storePct:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Backfill 2027 q3
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; awk -F':' 'NR % 2{print $6}' /etc/passwd | sort -u; true ; } > /tmp/aux5/106.124.134.29
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - '106.124.134.29'
+  sidebar251rad:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Dilute the fume hood on ice
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; find /opt -maxdepth 2 -type d -path '*' -empty -ctime -7 -exec du -sh {} \; 2>/dev/null | wc -l; true ; } > /tmp/aux5/INV-2023-17747
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'INV-2023-17747'
+  TAX-TYPE-IDX:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Stage X Unzip The Core Dumps
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; cat /etc/hosts|awk '{ print $2 }'|pr -3 -t; true ; } > /tmp/aux5/stone211
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'stone211'
+  idx_forge_handler_raise_pick:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Wait for the search box to vanish
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; echo -n "ready?"|b2sum; true ; } > /tmp/aux5/ae9587de643c545263324b976efd971b895e
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'ae9587de643c545263324b976efd971b895e'
+  broker-edge-x86-arm64:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: reprocessing invoice rows in background
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; find /opt -iname '*' -exec ls -1d {} + 2> /dev/null | nl; true ; } > /tmp/aux5/1F5
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - '1F5'
+  entry5:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Produce phase1 fixture
+          command: |
+            mkdir -p /tmp/aux5
+            set +o pipefail 2>/dev/null; dd if=/dev/urandom bs=4096 count=100 conv=sync 2>/dev/null > /tmp/aux5/west.forest.boson.ridge; true
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'west.forest.boson.ridge'
+  redo_manifest:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: WEIGH LOADING BAY AND SIGN
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; awk -F "/" '{print $NF}' /etc/shells|sort|uniq -c|fold -w 33; true ; } > /tmp/aux5/A9ksE8Y4U
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'A9ksE8Y4U'
+  key-47785:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Produce phase1 fixture
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; idx=tripstream && printf '%s\n' "${idx~~}"; true ; } > /tmp/aux5/lynx_20201009
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'lynx_20201009'
+  quinninator:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Resume And Wind Down
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; rm -f /tmp/garage.dat && echo "ok"; true ; } > /tmp/aux5/74b73f1515
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - '74b73f1515'
+  xref_POINT:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Route the dock in safe mode
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; mkdir -p "/tmp/local-shard-seal" && head -c 77000 /dev/urandom > "/tmp/local-shard-seal"/blob && du -sh "/tmp/local-shard-seal"; true ; } > /tmp/aux5/17528d5e-a087-4864
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - '17528d5e-a087-4864'
+  delete_transform:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Flight level 260 assignment
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; /usr/bin/ls -n -h -Q /var/cache | tail -n +2 | head -n 4; true ; } > /tmp/aux5/0b7a340a-8014-4d33
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - '0b7a340a-8014-4d33'
+  logServoLock:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: PENDING restart
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; tail -n 5 /etc/passwd | cut -d : -f 6; true ; } > /tmp/aux5/m0th.user.hawk.f3n
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'm0th.user.hawk.f3n'
+  TAX_EXTERNAL:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: Stabilise the QA lead in a tick
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; env -0|tr '\0' '\n'|awk -F = '{print $1}'|sort|tail --lines=1|fmt -w 64; true ; } > /tmp/aux5/meadow-noise-grove
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'meadow-noise-grove'
+  testReadParser:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/aux5
+      - run:
+          name: label loss curve rev 12
+          command: |
+            mkdir -p /tmp/aux5
+            { set +o pipefail 2>/dev/null; echo ok|sha256sum|cut -c1-16; true ; } > /tmp/aux5/xx_452737c2e5357e46
+            echo "stage ok"
+      - persist_to_workspace:
+          root: /tmp/aux5
+          paths:
+            - 'xx_452737c2e5357e46'
+workflows:
+  ci:
+    jobs:
+      - luempyyrkcloa_zoux
+      - glyphs2:
+          requires:
+            - luempyyrkcloa_zoux
+      - rigel-plus:
+          requires:
+            - glyphs2
+      - kCNSpanKey:
+          requires:
+            - glyphs2
+      - sys_OptionId:
+          requires:
+            - kCNSpanKey
+      - apr21-ship:
+          requires:
+            - sys_OptionId
+      - ap-edge-68:
+          requires:
+            - sys_OptionId
+      - j4:
+          requires:
+            - ap-edge-68
+      - nightly-v6:
+          requires:
+            - j4
+      - hotel-robot:
+          requires:
+            - j4
+      - Hash-Log:
+          requires:
+            - hotel-robot
+      - fix-session-glitch:
+          requires:
+            - Hash-Log
+      - c1us7er:
+          requires:
+            - Hash-Log
+      - storePct:
+          requires:
+            - c1us7er
+      - nova-ng:
+          requires:
+            - storePct
+      - wasBack:
+          requires:
+            - storePct
+      - sidebar251rad:
+          requires:
+            - wasBack
+      - v1-alpha4:
+          requires:
+            - sidebar251rad
+      - hH7:
+          requires:
+            - sidebar251rad
+      - TAX-TYPE-IDX:
+          requires:
+            - hH7
+      - bun-fmt:
+          requires:
+            - TAX-TYPE-IDX
+      - uuidMergeCheckout:
+          requires:
+            - TAX-TYPE-IDX
+      - idx_forge_handler_raise_pick:
+          requires:
+            - uuidMergeCheckout
+      - lets-go:
+          requires:
+            - idx_forge_handler_raise_pick
+      - test_477
+      - broker-edge-x86-arm64:
+          requires:
+            - test_477
+      - hyperion-plus:
+          requires:
+            - broker-edge-x86-arm64
+      - wRot:
+          requires:
+            - broker-edge-x86-arm64
+      - entry5:
+          requires:
+            - wRot
+      - verify-quick-regression-suite:
+          requires:
+            - entry5
+      - itFailsRow:
+          requires:
+            - entry5
+      - redo_manifest:
+          requires:
+            - itFailsRow
+      - delta-3:
+          requires:
+            - redo_manifest
+      - final26:
+          requires:
+            - redo_manifest
+      - key-47785:
+          requires:
+            - final26
+      - run-nightly-regression-suite:
+          requires:
+            - key-47785
+      - c:
+          requires:
+            - key-47785
+      - quinninator:
+          requires:
+            - c
+      - rm-metrics-crash:
+          requires:
+            - quinninator
+      - delta_n1:
+          requires:
+            - quinninator
+      - xref_POINT:
+          requires:
+            - delta_n1
+      - java17-test:
+          requires:
+            - xref_POINT
+      - ivyivy
+      - go1-21-cov:
+          requires:
+            - ivyivy
+      - X35:
+          requires:
+            - ivyivy
+      - check-nightly-release-candidate:
+          requires:
+            - X35
+      - GJUJK-805-iterate-var:
+          requires:
+            - X35
+      - jun15-cleanup:
+          requires:
+            - GJUJK-805-iterate-var
+      - validMode:
+          requires:
+            - GJUJK-805-iterate-var
+      - update-cache-glitch:
+          requires:
+            - validMode
+      - cntObj:
+          requires:
+            - validMode
+      - update-webhook:
+          requires:
+            - cntObj
+      - flyssswykpy:
+          requires:
+            - cntObj
+      - preview:
+          requires:
+            - flyssswykpy
+      - ii:
+          requires:
+            - flyssswykpy
+      - run-end-to-end-artifact-bundle:
+          requires:
+            - ii
+      - NEG324:
+          requires:
+            - ii
+      - QA_HOOK_4:
+          requires:
+            - NEG324
+      - virtualPtr:
+          requires:
+            - NEG324
+      - node18-ship:
+          requires:
+            - virtualPtr
+      - ddd9:
+          requires:
+            - virtualPtr
+      - Ship_Staging2:
+          requires:
+            - ddd9
+      - SCHEMA_PORT_36:
+          requires:
+            - ddd9
+      - q3-ship:
+          requires:
+            - SCHEMA_PORT_36
+      - rgt_pkt:
+          requires:
+            - SCHEMA_PORT_36
+      - qa-new:
+          requires:
+            - rgt_pkt
+      - filter_mut
+      - delete_transform:
+          requires:
+            - filter_mut
+      - cf-2a:
+          requires:
+            - delete_transform
+      - ZONE_FILE:
+          requires:
+            - delete_transform
+      - logServoLock:
+          requires:
+            - ZONE_FILE
+      - chen-ci:
+          requires:
+            - logServoLock
+      - finally9:
+          requires:
+            - logServoLock
+      - TAX_EXTERNAL:
+          requires:
+            - finally9
+      - tweak-metrics:
+          requires:
+            - TAX_EXTERNAL
+      - jud:
+          requires:
+            - TAX_EXTERNAL
+      - testReadParser:
+          requires:
+            - jud
+      - validte:
+          requires:
+            - testReadParser
